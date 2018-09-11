@@ -1,6 +1,6 @@
-# BD
-Datadases laboratory work #3
-Tema: Database Creation and Manipulation. DML
+# Datadases laboratory work #3
+
+#Tema: Database Creation and Manipulation. DML
 
 1.	Care din numerele prezentate mai jos pot fi introduse intr-un camp de tipul DECIMAL(4,1)?
 
