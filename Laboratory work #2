@@ -1,6 +1,6 @@
 Tema: Database Creation and Maintenance Tools
 
-1&2	Create a database DB1: 
+1	Create a database DB1: 
 
 •	DB1 by 5 MB, limited 100 MB;  
 •	File1 by 10 MB, limited to 1000MB; 
@@ -11,8 +11,17 @@ Once a new database is created, two files will be created automatically. These a
 The data file takes care of all the data that you want to store in database and log files is used to track the changes. 
 As soon as, you click on the ‘OK’ button, Database is created with the cylindrical icon.
 
+![DB1] (https://github.com/KatyaFAF172/BD/blob/master/DB1.png)
 
-3&43.	
+2.	Create a database DB2:
+Single user
+
+![DB2_single user] (https://github.com/KatyaFAF172/BD/blob/master/DB2_single%20user.png)
+
+SQL Server 2014
+![SQL Server 2014] (https://github.com/KatyaFAF172/BD/blob/master/SQL%20Server%202014.png)
+
+3&4.	
 
 Starting the Database Maintenance Plan Wizard
 Open Microsoft SQL Server Management Studio (SSMS) and expand the Management folder. 
@@ -36,6 +45,13 @@ Next, we'll have the opportunity to configure the details of each task.
 
 Choose Maintenance Plan Reporting Options
 Finally, we have the ability to have SQL Server create a report each time the plan executes containing detailed results.
+
+![MP_BD1] (https://github.com/KatyaFAF172/BD/blob/master/MP_BD1.png)
+![Reconstruire index] (https://github.com/KatyaFAF172/BD/blob/master/Reconstruire%20index.png)
+![MP_BD1.Subplan_1] (https://github.com/KatyaFAF172/BD/blob/master/MP_BD1.Subplan_1.png)
+![Ri] (https://github.com/KatyaFAF172/BD/blob/master/Ri.png)
+![SuccessMp] (https://github.com/KatyaFAF172/BD/blob/master/SuccessMp.png)
+![Ri_subplan] (https://github.com/KatyaFAF172/BD/blob/master/Ri_subplan.png)
 
 Conclusions:
 
