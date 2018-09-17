@@ -13,23 +13,37 @@ a, c, d, e-nu correct:
 1116,2 its type is Decimal (5,1)
 1116,21 its type is Decimal (6,2)
 
-2.	Create 4 tables as indicated in section 3.3 of the chapter. We create the necessary number of columns, we specify the Primary key and name of the table. 
+Create 4 tables as indicated in section 3.3 of the chapter. We create the necessary number of columns, 
+we specify the Primary key and name of the table. 
 
 Create Table Columns:
-The design interface presents us with a three-column grid to specify the table properties. For each attribute we wish to store in the table, we will need to identify:
+The design interface presents us with a three-column grid to specify the table properties. 
+For each attribute we wish to store in the table, we will need to identify:
 
-Column Name: This is, quite simply, the name of the attribute. Each database attribute is similar to a variable; it is a single data item that our database will store for each record. 
+Column Name: This is, quite simply, the name of the attribute. Each database attribute is similar to a variable; 
+it is a single data item that our database will store for each record. 
 
-Data Type: The data type specifies the type of information that we will store in each column. For example, a person's first name consists of a string of letters, so we might use the varchar(4) data type to indicate that the column will contain a variable length string that is no longer than 4 characters. 
+Data Type: The data type specifies the type of information that we will store in each column. 
+For example, a person's first name consists of a string of letters, so we might use the varchar(4) data type to indicate 
+that the column will contain a variable length string that is no longer than 4 characters. 
 
 Allow Nulls: This is simply a checkbox. If we check it, the database will allow we to store null (or blank) values in that column.
 
 Next step:  Identify a Primary Key.
 
 Name and save table.
+After make a click with the right mouse button on dbo file and select the option: Edit Top 200 Rows. 
+Now, we can enter data into the table. 
 
-3.	After make a click with the right mouse button on dbo file and select the option: Edit Top 200 Rows. Now, we can enter data into the table. 
+![Diagram_0] (https://github.com/KatyaFAF172/BD/blob/master/Diagram_0.png)
+
+To create the new database diagram, we will need to right click on Database Diagrams folder and click on New Database Diagram. 
+A window will appear with list of all the tables in our database. To add the tables to the diagram select them (use Control 
+or Shift keys to select multiple at once) and click Add button or double click on them. 
+When we add all required tables click Close button. This will create a diagram with the tables columns, primary keys, 
+and relationships that were read from the schema.
 
 Conclusions:
- The table comprises of rows and columns. So while creating tables we have to provide all the information to SQL about the names of the columns, type of data to be stored in columns, size of the data etc. 
- Designing tables to store our data is an essential responsibility of a database developer. 
+ The table comprises of rows and columns. So while creating tables we have to provide all the information to SQL about 
+ the names of the columns, type of data to be stored in columns, size of the data etc. Designing tables to store our data
+ is an essential responsibility of a database developer. 
