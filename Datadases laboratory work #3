@@ -122,7 +122,8 @@ WHERE YEAR(Data_Evaluare) = 2018 AND Nota BETWEEN 40 AND 80 AND Id_Disciplina = 
 
 ![Q10](https://github.com/KatyaFAF172/BD/blob/master/Q10.png)
 
-11.	Furnizati numele si prenumele profesorilor, care au predat disciplina Baze de date, in 2018, si au evaluat vreun student cu nota nesatisfacatoare la reusita curenta.
+11.	Furnizati numele si prenumele profesorilor, care au predat disciplina Baze de date, in 2018, si au evaluat 
+vreun student cu nota nesatisfacatoare la reusita curenta.
 
 
 SELECT Id_Profesor, Nume_Profesor, Prenume_Profesor
