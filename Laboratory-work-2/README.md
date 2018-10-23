@@ -20,10 +20,10 @@ As soon as, you click on the ‘OK’ button, Database is created with the cylin
 2. Create a database DB2:
 Single user
 
-![DB2_single_user](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-2/image/DB2_single%20user.png)
+![DB2_single_user](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-2/image/DB2_single_user.png)
 
 SQL Server 2014
-![SQL_Server_2014](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-2/image/SQL%20Server%202014.png)
+![SQL_Server_2014](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-2/image/SQL_Server_2014.png)
 
 3&4.	
 
