@@ -61,7 +61,7 @@ INNER JOIN studenti_reusita
 ON profesori.Id_Profesor = studenti_reusita.Id_Profesor AND YEAR(Data_Evaluare) = 2018 AND Nota <5 AND Id_Disciplina = 107
 
 
-![Nr11](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.11.png)
+![Nr11](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr11.png)
 
 
 
@@ -79,9 +79,9 @@ ON discipline.Id_Disciplina = studenti_reusita.Id_Disciplina
 WHERE Prenume_Student = 'Alex' 
 ORDER BY Prenume_Student;
 
-![Nr12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.12.png)
+![Nr12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr12.png)
 
-![Nr12-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.12-1.png)
+![Nr-12-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr-12-1.png)
 
 
 25. In ce grupe de studii(Cod_Grupa) figureaza mai mult de 24 de studentii? 
