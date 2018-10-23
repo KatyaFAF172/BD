@@ -14,15 +14,15 @@ Once a new database is created, two files will be created automatically. These a
 The data file takes care of all the data that you want to store in database and log files is used to track the changes. 
 As soon as, you click on the ‘OK’ button, Database is created with the cylindrical icon.
 
-![DB1] (https://github.com/KatyaFAF172/BD/blob/master/DB1.png)
+![DB1] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/DB1.png)
 
 2. Create a database DB2:
 Single user
 
-![DB2_single_user] (https://github.com/KatyaFAF172/BD/blob/master/DB2_single%20user.png)
+![DB2_single_user] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/DB2_single%20user.png)
 
 SQL Server 2014
-![SQL_Server_2014] (https://github.com/KatyaFAF172/BD/blob/master/SQL%20Server%202014.png)
+![SQL_Server_2014] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/SQL%20Server%202014.png)
 
 3&4.	
 
@@ -49,17 +49,17 @@ Next, we'll have the opportunity to configure the details of each task.
 Choose Maintenance Plan Reporting Options
 Finally, we have the ability to have SQL Server create a report each time the plan executes containing detailed results.
 
-![MP_BD1] (https://github.com/KatyaFAF172/BD/blob/master/MP_BD1.png)
+![MP_BD1] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/MP_BD1.png)
 
-![Reconstruire_index] (https://github.com/KatyaFAF172/BD/blob/master/Reconstruire%20index.png)
+![Reconstruire_index] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/Reconstruire%20index.png)
 
-![MP_BD1.Subplan_1] (https://github.com/KatyaFAF172/BD/blob/master/MP_BD1.Subplan_1.png)
+![MP_BD1.Subplan_1] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/MP_BD1.Subplan_1.png)
 
-![Ri] (https://github.com/KatyaFAF172/BD/blob/master/Ri.png)
+![Ri] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/Ri.png)
 
-![SuccessMp] (https://github.com/KatyaFAF172/BD/blob/master/SuccessMp.png)
+![SuccessMp] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/SuccessMp.png)
 
-![Ri_subplan] (https://github.com/KatyaFAF172/BD/blob/master/Ri_subplan.png)
+![Ri_subplan] (https://github.com/KatyaFAF172/BD/Laboratory-work-2/blob/master/Ri_subplan.png)
 
 Conclusions:
 
