@@ -61,7 +61,8 @@ INNER JOIN studenti_reusita
 ON profesori.Id_Profesor = studenti_reusita.Id_Profesor AND YEAR(Data_Evaluare) = 2018 AND Nota <5 AND Id_Disciplina = 107
 
 
-![Nr11](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-3/image/Nr.11.png)
+![Nr11](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.11.png)
+
 
 
 
@@ -78,9 +79,9 @@ ON discipline.Id_Disciplina = studenti_reusita.Id_Disciplina
 WHERE Prenume_Student = 'Alex' 
 ORDER BY Prenume_Student;
 
-![Nr12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-3/image/Nr.12.png)
+![Nr12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.12.png)
 
-![Nr12-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-3/image/Nr.12-1.png)
+![Nr12-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.12-1.png)
 
 
 25. In ce grupe de studii(Cod_Grupa) figureaza mai mult de 24 de studentii? 
@@ -96,7 +97,7 @@ HAVING  count(Id_Student) > 24
 ORDER BY student_number DESC , grupe.Cod_Grupa
 ;
 
-![Nr25](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.25.png)
+![Nr25](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr25.png)
 
 
 35. gasiti denumirile disciplinelor si media notelor pe disciplina. afisati numai disciplinele cu medii mai mari de 7.0
@@ -107,7 +108,7 @@ GROUP BY discipline.Disciplina
 HAVING  AVG(CAST(Nota AS FLOAT)) > 7.0
 ORDER BY  media
 
-![Nr35](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr.35.png)
+![Nr35](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-4/image/Nr35.png)
 
 Conclusions:
 The table comprises of rows and columns. So while creating tables we have to provide all the information 
