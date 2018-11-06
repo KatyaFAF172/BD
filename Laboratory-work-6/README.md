@@ -122,7 +122,7 @@ b) Campul *Localitate* trebuie sa posede proprietatea DEFAULT = "mun.Chisinau".
 c) Sa se insereze toate datele din tabelul *profesori* in tabelul *profesori_new*. Sa se scrie, cu acest scop, un numar potrivit de instructiuni T-SQL. Datele trebuie sa fie transferate in felul urmator:
 
 
-
+In coloana *Localitate* sa fie inserata doar informatia despre denumirea localitatii din coloana-sursa *Adresa_Postala_Profesor*. In coloana Adresa_1, doar denumirea strazii. In coloana Adresa_2, sa se pastreze numarul casei si (posibil) a apartamentului.
 
 USE universitatea
 SELECT  Id_Profesor, 
@@ -141,6 +141,26 @@ alter table profesori_new
 add constraint Id_Profesor PRIMARY KEY CLUSTERED (Id_Profesor);
 
 ![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-6/image/Nr5.png)
+
+
+6. Sa se insereze datele in tabelul *orarul* pentru Grupa = 'CIB171' (Id_Grupa = 1) pentru ziua de luni. Toate lectiile vor avea loc in blocul de studii 'B'. Mai jos, sunt prezentate detaliile de inserare:
+
+(Id_Disciplina = 107, Id_Profesor = 101, Ora = '08:00', Auditoriu = 202);
+(Id_Disciplina = 108, Id_Profesor = 101, Ora = '11:30', Auditoriu = 501);
+(Id_Disciplina = 119, Id_Profesor = 117, Ora = '13:00', Auditoriu = 501);
+
+
+7. Sa se scrie expresiile T-SQL necesare pentru a popula tabelul *orarul* pentru grupa INF171, ziua de luni.
+
+Datele necesare pentru inserare trebuie sa fie colectate cu ajutorul instructiunii/instructiunilor SELECT si introduse in tabelul-destinatie, stiind ca:
+
+lectie #1 (Ora = '08:00', Disciplina = 'Structuri de date si algoritmi', Profesor = 'Bivol Ion')
+lectie #2 (Ora = '11:30', Disciplina = 'Programe aplicative', Profesor = 'Mircea Sorin')
+lectie #3 (Ora = '13:00', Disciplina = 'Baze de date', Profesor = 'Micu Elena')
+
+8. Sa se scrie interogarile de creare a indecsilor asupra tabelelor din baza de date *universitatea* pentru a asigura o performanta sporita la executarea interogarilor SELECT din Lucrarea practica 4. Rezultatele optimizarii sa fie analizate in baza planurilor de executie, pana la si dupa crearea indecsilor.
+
+Indecsii nou-creati sa fie plasati fizic in grupul de fisiere userdatafgroup1.
 
 
 
