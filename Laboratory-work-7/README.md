@@ -60,28 +60,28 @@ create nonclustered index NIX_task6
 ![Nr3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr3.png)
 
 
-![Nr3-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr3-1.png)
+![Nr3-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr3-1.PNG)
 
 
 
 4. Tabelul orarul trebuie sa contina si 2 chei secundare: (Zi, Ora, Id_ Grupa, Id_ Profesor) si (Zi, Ora, ld_Grupa, ld_Disciplina).
 
 
-![Nr4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr4.png)
+![Nr4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr4.PNG)
 
-![Nr4-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr4-1.png)
+![Nr4-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr4-1.PNG)
 
 
 5. In diagrama, de asemenea, trebuie sa se defineasca constrangerile referentiale (FK-PK) ale atributelor *ld_Disciplina, ld_Profesor, Id_ Grupa* din tabelului orarul cu atributele tabelelor respective.
 
 
-![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5.png)
+![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5.PNG)
 
-![Nr5-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5-1.png)
+![Nr5-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5-1.PNG)
 
-![Nr5-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5-2.png)
+![Nr5-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5-2.PNG)
 
-![Nr5-3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5-3.png)
+![Nr5-3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr5-3.PNG)
 
 
 6. Creati, in baza de date universitatea, trei scheme noi: *cadre_didactice, plan_studii* si *studenti*. Transferati tabelul profesori din schema dbo in schema cadre didactice, tinind cont de dependentele definite asupra tabelului mentionat. In acelasi mod sa se trateze tabelele orarul,discipline care apartin schemei plan_studii și tabelele studenți, studenti_reusita, care apartin schemei studenti. Se scrie instructiunile SQL respective.
@@ -107,7 +107,7 @@ alter studenti transfer dbo.orarul
 alter studenti transfer dbo.studenti
 
 
-![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr6.png)
+![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr6.PNG)
 
 
 
@@ -119,7 +119,7 @@ I have a problem: the schemas are created, but there are errors. After removing 
 
 
 
-![Nr7](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr7.png)
+![Nr7](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr7.PNG)
 
 
 8. Creati sinonimele respective pentru a simplifica interogarile construite in exercitiul precedent si reformulati interogarile, folosind sinonimele create.
