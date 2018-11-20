@@ -181,7 +181,6 @@ go
 
 ![Nr4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4.PNG)
 
-![Nr4-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4-1.PNG)
 
 5. Sa se rescrie 2 interogari formulate in exercitiile din capitolul 4, in asa fel. incat interogarile imbricate sa fie redate sub forma expresiilor CTE.
 
