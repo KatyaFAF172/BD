@@ -30,15 +30,15 @@ Tasks
 
 
 
-![Nr1-11](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-11.png)
+![Nr1-11](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-11.PNG)
 
 
-![Nr1-11-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-11-1.png)
+![Nr1-11-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-11-1.PNG)
 
 
 *View Designer*:
 
-![Nr1-11-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-11-2.png)
+![Nr1-11-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-11-2.PNG)
 
 
 
@@ -66,14 +66,14 @@ Tasks
             select * from task12
         
 
-![Nr1-12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12.png)
+![Nr1-12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12.PNG)
 
-![Nr1-12-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12-1.png)
+![Nr1-12-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12-1.PNG)
 
 
 *View Designer*:
 
-![Nr1-12-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12-2.png)
+![Nr1-12-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12-2.PNG)
 
 
 2. Sa se scrie cate un exemplu de instructiuni *INSERT, UPDATE, DELETE* asupra viziunilor create. Sa se adauge comentariile respective referitoare la rezultatele executarii acestor instructiuni.
@@ -114,11 +114,11 @@ delete from task11_2 where Prenume_Profesor='Gadot'
 select * from task11_2
 
 
-![Nr2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2.png)
+![Nr2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2.PNG)
 
-![Nr2-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2-1.png)
+![Nr2-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2-1.PNG)
 
-![Nr2-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2-2.png)
+![Nr2-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2-2.PNG)
 
 3. Sa se scrie instructiunile SQL care ar modifica viziunile create 9 in exercitiu 1) in asa fel, incat sa nu fie posibila modificarea sau stergerea tabelelor pe care acestea sunt definite si viziunile sa nu accepte operatiuni DML, daca conditiile clauzei *WHERE* nu sunt satisfacute.
 
@@ -148,6 +148,13 @@ go
 --show
 select * from exemplul3
 
+
+![Nr3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr3.PNG)
+
+![Nr3-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr3-1.PNG)
+
+![Nr3-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr3-2.PNG)
+
 4. Sa se scrie instructiunile de testare a proprietatilor noi definite.
 
 CHECK OPTION
@@ -172,9 +179,9 @@ select * from exemplul4
 go
 
 
-![Nr4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4.png)
+![Nr4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4.PNG)
 
-![Nr4-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4-1.png)
+![Nr4-1](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4-1.PNG)
 
 5. Sa se rescrie 2 interogari formulate in exercitiile din capitolul 4, in asa fel. incat interogarile imbricate sa fie redate sub forma expresiilor CTE.
 
@@ -187,18 +194,10 @@ select distinct Nume_Profesor, Prenume_Profesor, Nota, Id_Disciplina
 	        INNER JOIN check_note_data studenti_reusita 
 	        ON profesori.Id_Profesor = studenti_reusita.Id_Profesor; 
 
-![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr5.png)
+![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr5.PNG)
 
 
 6. Se considera un graf orientat, precum cel din figura de mai jos
 
 
-with f(id, Fact) as (select 5,0
-                union all
-                select id-1, ((-1)*(id-2)*((id-1)*(id-1)-5*(id-1)))/6 from f
-                where id-1>0)
-
-select * from f
-
-
-![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr6.png)
+![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr6.PNG)
