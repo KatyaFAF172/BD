@@ -86,25 +86,26 @@ create nonclustered index NIX_task6
 
 6. Creati, in baza de date universitatea, trei scheme noi: *cadre_didactice, plan_studii* si *studenti*. Transferati tabelul profesori din schema dbo in schema cadre didactice, tinind cont de dependentele definite asupra tabelului mentionat. In acelasi mod sa se trateze tabelele orarul,discipline care apartin schemei plan_studii și tabelele studenți, studenti_reusita, care apartin schemei studenti. Se scrie instructiunile SQL respective.
 
-use universitatea
+use universitatea 
 go
-create schema cadre_didactice;
-go
-alter cadre_didactice transfer dbo.profesori
-alter cadre_didactice transfer dbo.studenti_reusita
-alter cadre_didactice transfer dbo.orarul
-go
-create schema plan_studii;
-go
-alter plan_studii transfer dbo.orarul
-alter plan_studii transfer dbo.studenti_reusita
-alter plan_studii transfer dbo.discipline
-go
-create schema studenti;
-go
-alter studenti transfer dbo.studenti_reusita
-alter studenti transfer dbo.orarul
-alter studenti transfer dbo.studenti
+
+ create schema cadre_didactice;
+  go
+
+   alter schema cadre_didactice transfer dbo.profesori 
+   alter schema cadre_didactice transfer dbo.studenti_reusita
+    alter schema cadre_didactice transfer dbo.orarul
+	 go
+	  create schema plan_studii;
+	   go
+	    alter plan_studii transfer dbo.orarul 
+		alter plan_studii transfer dbo.studenti_reusita 
+		alter plan_studii transfer dbo.discipline 
+		go
+		 create schema studenti;
+		  go alter studenti transfer dbo.studenti_reusita 
+		  alter studenti transfer dbo.orarul
+		   alter studenti transfer dbo.studenti
 
 
 ![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr6.PNG)
