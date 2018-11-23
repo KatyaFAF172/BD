@@ -66,6 +66,7 @@ ALTER COLUMN column_name;
 
 a) *Seful grupei* trebuie sa aiba cea mai buna reusita (medie) din grupa la toate formele de evaluare si la toate disciplinele. Un student nu poate fi sef de grupa la mai multe grupe.
 
+```sql
 DECLARE c1 CURSOR FOR 
 SELECT id_grupa FROM grupe 
 
@@ -102,7 +103,7 @@ END
 
 CLOSE c1
 DEALLOCATE c1
-
+```
 
 ![Nr3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-6/image/Nr3.png)
 
@@ -130,6 +131,7 @@ c) Sa se insereze toate datele din tabelul *profesori* in tabelul *profesori_new
 
 In coloana *Localitate* sa fie inserata doar informatia despre denumirea localitatii din coloana-sursa *Adresa_Postala_Profesor*. In coloana Adresa_1, doar denumirea strazii. In coloana Adresa_2, sa se pastreze numarul casei si (posibil) a apartamentului.
 
+```sql
 USE universitatea
 
 SELECT Id_Profesor,
@@ -145,7 +147,7 @@ alter table profesori_new
 add default 'Mun. Chisinau' for Localitate;
 alter table profesori_new
 add constraint Id_Profesor primary key clustered (Id_Profesor);
-
+```
 
 ![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-6/image/Nr5.png)
 
@@ -154,6 +156,7 @@ add constraint Id_Profesor primary key clustered (Id_Profesor);
 
 6. Sa se insereze datele in tabelul *orarul* pentru Grupa = 'CIB171' (Id_Grupa = 1) pentru ziua de luni. Toate lectiile vor avea loc in blocul de studii 'B'. Mai jos, sunt prezentate detaliile de inserare:
 
+```sql
 (Id_Disciplina = 107, Id_Profesor = 101, Ora = '08:00', Auditoriu = 202);
 (Id_Disciplina = 108, Id_Profesor = 101, Ora = '11:30', Auditoriu = 501);
 (Id_Disciplina = 119, Id_Profesor = 117, Ora = '13:00', Auditoriu = 501);
@@ -171,7 +174,7 @@ create table orarul
 insert into orarul(Id_Disciplina, Id_Profesor, Zi, Ora, Auditoriu) values(107, 101, 'Luni', '08:00', 202)
 insert into orarul(Id_Disciplina, Id_Profesor, Zi, Ora, Auditoriu) values(108, 101, 'Luni', '11:30', 501)
 insert into orarul(Id_Disciplina, Id_Profesor, Zi, Ora, Auditoriu) values(119, 117, 'Luni', '13:00', 501)
-
+```
 
 ![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-6/image/Nr6.png)
 
@@ -191,7 +194,7 @@ lectie #3 (Ora = '13:00', Disciplina = 'Baze de date', Profesor = 'Micu Elena')
 
 Indecsii nou-creati sa fie plasati fizic in grupul de fisiere userdatafgroup1.
 
-
+```sql
 select distinct Id_Disciplina, Id_Profesor, Id_Grupa
 into orarul
 from studenti_reusita
@@ -224,7 +227,7 @@ create nonclustered index NIX_task6
     on orarul (Id_Disciplina, Id_Profesor, Id_Grupa, Bloc, Zi)  
     with (DROP_EXISTING = on)  
     on userdatafgroup1; 
-
+```
 
 
 ![Nr8](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-6/image/Nr8.png)
