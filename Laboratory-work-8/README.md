@@ -12,6 +12,7 @@ Tasks
         11.	Furnizati numele si prenumele profesorilor, care au predat disciplina Baze de date, in 2018, 
             si au evaluat vreun student cu nota nesatisfacatoare la reusita curenta.
 
+			```sql
             use universitatea
             go
             drop view if exists dbo.task11;
@@ -27,6 +28,7 @@ Tasks
             go
             --test interogare viziune
             select * from task11
+			```
 
 
 
@@ -48,6 +50,7 @@ Tasks
         12.Furnizati, in evidenta academica(reusita) a studentilor cu prenumele Alex, urmatoarele date:
             Numele, prenumele, denumirea disciplinei, notele(inclusive la probele intermediate) si anul la care au sustinut.
 
+			```sql
             use universitatea
             go
             drop view if exists dbo.task12;
@@ -64,6 +67,7 @@ Tasks
             go
             --test interogare viziune
             select * from task12
+			```
         
 
 ![Nr1-12](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr1-12.PNG)
@@ -78,6 +82,7 @@ Tasks
 
 2. Sa se scrie cate un exemplu de instructiuni *INSERT, UPDATE, DELETE* asupra viziunilor create. Sa se adauge comentariile respective referitoare la rezultatele executarii acestor instructiuni.
 
+```sql
  --To change the data type of a column in a table
 alter view task11 as 
 	        select distinct profesori.Nume_Profesor, profesori.Prenume_Profesor
@@ -112,7 +117,7 @@ select * from task11
 --delete
 delete from task11_2 where Prenume_Profesor='Gadot'
 select * from task11_2
-
+```
 
 ![Nr2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr2.PNG)
 
@@ -122,7 +127,7 @@ select * from task11_2
 
 3. Sa se scrie instructiunile SQL care ar modifica viziunile create 9 in exercitiu 1) in asa fel, incat sa nu fie posibila modificarea sau stergerea tabelelor pe care acestea sunt definite si viziunile sa nu accepte operatiuni DML, daca conditiile clauzei *WHERE* nu sunt satisfacute.
 
-
+```sql
 use universitatea
 go
 drop view if exists dbo.exemplul3;
@@ -147,7 +152,7 @@ go
 go
 --show
 select * from exemplul3
-
+```
 
 ![Nr3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr3.PNG)
 
@@ -160,6 +165,7 @@ select * from exemplul3
 CHECK OPTION
 Forces all data modification statements executed against the view to follow the criteria set within select_statement. When a row is modified through a view, the WITH CHECK OPTION makes sure the data remains visible through the view after the modification is committed.
 
+```sql
 use universitatea
 go
 drop view if exists dbo.exemplul4;
@@ -178,12 +184,14 @@ create view exemplul4 as
 select * from exemplul4
 go
 
+```
 
 ![Nr4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr4.PNG)
 
 
 5. Sa se rescrie 2 interogari formulate in exercitiile din capitolul 4, in asa fel. incat interogarile imbricate sa fie redate sub forma expresiilor CTE.
 
+```sql
  with check_note_data (Id_Profesor, Nota, Id_Disciplina) as
  (select Id_Profesor, Nota, Id_Disciplina
 	        from studenti_reusita
@@ -192,6 +200,7 @@ select distinct Nume_Profesor, Prenume_Profesor, Nota, Id_Disciplina
 	        from profesori 
 	        INNER JOIN check_note_data studenti_reusita 
 	        ON profesori.Id_Profesor = studenti_reusita.Id_Profesor; 
+```
 
 ![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-8/image/Nr5.PNG)
 
