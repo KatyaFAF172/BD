@@ -156,11 +156,12 @@ add constraint Id_Profesor primary key clustered (Id_Profesor);
 
 6. Sa se insereze datele in tabelul *orarul* pentru Grupa = 'CIB171' (Id_Grupa = 1) pentru ziua de luni. Toate lectiile vor avea loc in blocul de studii 'B'. Mai jos, sunt prezentate detaliile de inserare:
 
-```sql
+
 (Id_Disciplina = 107, Id_Profesor = 101, Ora = '08:00', Auditoriu = 202);
 (Id_Disciplina = 108, Id_Profesor = 101, Ora = '11:30', Auditoriu = 501);
 (Id_Disciplina = 119, Id_Profesor = 117, Ora = '13:00', Auditoriu = 501);
 
+```sql
 create table orarul
 	(Id_Profesor int not null
 	,Id_Disciplina int not null
