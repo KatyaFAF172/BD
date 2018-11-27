@@ -116,11 +116,6 @@ go
 ![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr6.PNG)
 
 
-
-I have a problem: the schemas are created, but there are errors. After removing these schemes and running the code, the same errors still appear. Also, I can not solve 7 and 8 tasks because they are associated with 6 task.  
-====
-
-
 7. Modificati 2-3 interogari asupra bazei de date universitatea prezentate in capitolul 4 astfel ca numele tabelelor accesate sa fie descrise in mod explicit, tinind cont de faptul ca tabelele au fost mutate in scheme noi.
 
 
@@ -134,7 +129,7 @@ I have a problem: the schemas are created, but there are errors. After removing 
 
 Cream tabelul orarul:
 CLUSTERED INDEX
-*With a non clustered index there is a second list that has pointers to the physical rows. We can have many non clustered indexes, although each new index will increase the time it takes to write new records. Faster to read than non clustered as data is physically stored in index order.*
+*Faster to read than non clustered as data is physically stored in index order.*
 *Additional disk space: not needed.*
 *A clustered index is faster than non-clustered index because the non-clustered index has to refer back to the base table.*
 
