@@ -196,3 +196,59 @@ create nonclustered index NIX_task6
 ```
 *Determines the storage order of the rows in a table with the help of separate physical structure. Slower as compared to the clustered index. Additional disk space: required to store the indices separately.*
 ![Nr8-2](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr8-2.png)
+
+
+SAU
+
+```sql
+use universitatea
+go
+drop synonym if exists pr
+go
+create synonym pr for cadre_didactice.profesori
+go
+drop synonym if exists st
+go
+create synonym st for studenti.studenti_reusita
+go
+
+SELECT distinct pr.Nume_Profesor, pr.Prenume_Profesor
+				,st.Id_Disciplina, st.nota
+FROM pr
+INNER JOIN st 
+ON pr.Id_Profesor = st.Id_Profesor 
+AND YEAR(Data_Evaluare) = 2018 AND Nota <5 AND Id_Disciplina = 107
+```
+
+![Nr8-3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr8-3.png)
+
+![Nr8-4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr8-4.png)
+
+
+```sql
+use universitatea
+
+drop synonym if exists stud
+go
+create synonym stud for studenti.studenti
+go
+drop synonym if exists st
+go
+create synonym st for studenti.studenti_reusita
+go
+drop synonym if exists dis
+go
+create synonym dis for plan_studii.discipline
+go
+
+SELECT Nume_Student, Prenume_Student, Disciplina, Nota, YEAR(Data_Evaluare) AS Year
+FROM stud 
+INNER JOIN st
+ON stud.Id_Student = st.Id_Student 
+INNER JOIN dis
+ON dis.Id_Disciplina = st.Id_Disciplina
+WHERE Prenume_Student = 'Alex' 
+ORDER BY Prenume_Student;
+```
+
+![Nr8-5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-7/image/Nr8-5.png)
