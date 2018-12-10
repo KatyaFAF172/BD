@@ -270,76 +270,7 @@ where Id_Student = 101 and Tip_Evaluare='Examen' and Id_Disciplina=105
 ```
 
 
-```sql
-use universitatea
-go
-drop trigger if exists declansator3
-go
---Declansator ar interzice micsorarea notelor in tabelul studenti_reusita
-CREATE TRIGGER declansator3 ON studenti_reusita 
-AFTER INSERT, update, delete
-AS
-declare @nota int
---declare @data date
-			select @nota = count(Nota) from studenti_reusita
-			where Nota = 9 and Data_Evaluare = '2018-01-25'
-			if @nota < 9			
-				BEGIN 
-					RAISERROR  ('Atentie, micsorarea notelor este interzisa!',16,10);
-					ROLLBACK
-					END
-				--else
-				--begin
-					--if @data<>'2018-01-25'
-					--RAISERROR  ('Atentie, modificarea valorilor campului Data_Evaluare este interzisa!',16,10);
-					--ROLLBACK
-					--END
-go
-update studenti_reusita
-set Nota = 6
-where Data_Evaluare ='2018-01-25' and Id_Student = 100 and Id_Disciplina = 105
-go 
-select *
-from studenti_reusita
-```
-
-```sql
-use universitatea
-go
-drop trigger if exists declansator3
-go
---Declansator ar interzice micsorarea notelor in tabelul studenti_reusita
-CREATE TRIGGER declansator3 ON studenti_reusita 
-AFTER INSERT, update, delete
-AS
-declare @nota int
-declare @data date
---declare @data date
-			select @nota = count(Nota), @data = Data_Evaluare from studenti_reusita
-			where Nota = 9 and Data_Evaluare = '2018-01-25'
-			if @nota < 9			
-				BEGIN 
-					RAISERROR  ('Atentie, micsorarea notelor este interzisa!',16,10);
-					ROLLBACK
-					END
-				else
-					if @data<>'2018-01-25'
-					begin
-					RAISERROR  ('Atentie, modificarea valorilor campului Data_Evaluare este interzisa!',16,10);
-					ROLLBACK
-					end
-go
-update studenti_reusita
-set Nota = 6
---set Data_Evaluare = '2020-01-25'
-where Tip_Evaluare = 'Examen' and Id_Disciplina = 105 and Id_Student =100
-go 
-select *
-from studenti_reusita
-```
-
-
-
+![Nr3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr3.png)
 
 
 4. Sa se creeze un declansator DDL care ar interzice modificarea coloanei Id_Disciplina in tabelele bazei de date universitatea cu afisarea mesajului respectiv.
@@ -404,39 +335,39 @@ alter column Cod_Grupa char(7);
 6. Sa se creeze un declansator DDL care, la modificarea proprietatilor coloanei Id_Profesor dintr-un tabel, ar face schimbari asemanatoare in mod automat in restul tabelelor.
 
 
-
 ```sql
 use universitatea
 go
 if exists (select * from sys.triggers where parent_class = 0
-and name = 'exec6')
+    and name = 'exec6')
 drop trigger  exec6 on database;
 go
-create trigger exec6 on database
+create or alter trigger exec6 on database
 for alter_table
 as
+declare @col_name varchar(10);
+declare @command varchar(500);
+declare @replacer varchar(500);
+declare @table_name varchar(50);
+set @col_name=EVENTDATA().value('(/EVENT_INSTANCE/AlterTableActionList/*/Columns/Name)[1]','nvarchar(max)')
+if @col_name = 'Id_Profesor'
 begin
-
-declare @schema varchar(max)
-declare @command varchar(max)
-declare @command_new varchar(max)
-
-set @command=EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand)[1]','varchar(MAX)')
-set @schema=EVENTDATA().value('(/EVENT_INSTANCE/Objectname)[1]','varchar(MAX)')
-set @command_new=replace(@command, @schema,'studenti_reusita')
-
-if @command like '%Id_Profesor%'
-	begin
-	if (@schema != 'id_pr')
-			begin 
-				set @command_new=REPLACE (@command,'Id_Profesor\','studenti_reusita')
-				execute(@command_new)
-			end
-	end
+    select @command = EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]','nvarchar(max)')
+    select @table_name = EVENTDATA().value('(/EVENT_INSTANCE/ObjectName)[1]','nvarchar(max)')
+    
+    set @replacer = REPLACE(@command, @table_name, 'studenti_reusita');
+    execute (@replacer)
+            
+    set @replacer = REPLACE(@command, @table_name, 'grupe');
+    execute (@replacer)
+            
+    set @replacer = REPLACE(@command, @table_name, 'profesori');
+    execute (@replacer)
+            
+    print 'Types were modified'
 end
-go
-
 ```
+
 
 ![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr6.PNG)
 
