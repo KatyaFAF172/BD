@@ -132,9 +132,142 @@ from dbo.studenti
 ![Nr2-3](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr2-3.PNG)
 
 
+SAU
+
+
+```sql
+use universitatea
+go
+
+drop trigger if exists declansator_2_1
+go
+drop trigger if exists declansator_2_2
+go
+
+create trigger declansator_2_1 on studenti
+    after insert
+    as
+    declare @id as int
+    declare @cursor_studenti cursor 
+    set @cursor_studenti = cursor scroll
+    for
+        select Id_Student from inserted
+    open @cursor_studenti
+    fetch next from @cursor_studenti into @id
+    while @@FETCH_STATUS = 0
+    begin
+        if @id < 201
+        begin
+            raiserror('Cannot insert Id_Student less than 201', 16, 10);
+            rollback transaction
+        end
+    fetch next from @cursor_studenti into @id
+    end
+    close @cursor_studenti
+go
+
+create trigger declansator_2_2 on studenti_reusita
+    after insert
+    as
+    declare @id as int
+    declare @cursor_studenti_reusita cursor 
+    set @cursor_studenti_reusita = cursor scroll
+    for
+        select Id_Student from inserted
+    open @cursor_studenti_reusita
+    fetch next from @cursor_studenti_reusita into @id
+    while @@FETCH_STATUS = 0
+    begin
+        if @id < 201
+        begin
+            raiserror('Cannot insert Id_Student less than 201', 16, 10);
+            rollback transaction
+        end
+    fetch next from @cursor_studenti_reusita into @id
+    end
+    close @cursor_studenti_reusita
+go
+```
+![Nr2-4](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr2-4.PNG)
+
+```sql
+insert into dbo.studenti ( [Id_Student], [Nume_Student], [Prenume_Student]
+                            , [Data_Nastere_Student], [Adresa_Postala_Student])
+values (204, 'Kfir', 'Dolev', '1992-01-21', ' Chisinau, str. G.Asachi 66')
+        , (205, 'Shoshan', 'Gil', '1988-09-09', ' Chisinau, str. Bucuresti 123')
+
+go
+select *
+from dbo.studenti
+```
+![Nr2-5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr2-5.PNG)
+
+
 
 3. Sa se creeze un declansator, care ar interzice micsorarea notelor in tabelul *studenti_reusita* si modificarea valorilor campului *Data_Evaluare*, unde valorile acestui camp sunt nenule.
 Declansatorul trebuie sa se lanseze, numai daca sunt afectate datele studentilor din grupa "CIB171". Se va afisa un mesaj de avertizare in cazul tentativei de a incalca constrangerea.
+
+
+```sql
+create or alter trigger ex3 on studenti_reusita
+after update 
+as
+begin
+
+    declare @Id_Student int,@Id_Disciplina int,@Id_Profesor int,@Id_Grupa int,@Tip_Evaluare char(20),@NewNote int,@Data_Evaluare date;
+
+    DECLARE db_cursor CURSOR FOR 
+    SELECT Id_Student,Id_Disciplina,Id_Profesor, Id_Grupa,Tip_Evaluare, Nota, Data_Evaluare
+    FROM inserted 
+
+    OPEN db_cursor
+    FETCH NEXT FROM db_cursor INTO @Id_Student,@Id_Disciplina,@Id_Profesor,@Id_Grupa,@Tip_Evaluare,@NewNote,@Data_Evaluare
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        if @Id_Grupa in (select Id_Grupa from grupe where Cod_Grupa = 'CIB171')
+        begin
+            -- start task 1
+            declare @OldNote int = ( select Nota from deleted where Id_Student=@Id_Student and Tip_Evaluare = @Tip_Evaluare and Id_Disciplina = @Id_Disciplina)
+
+            select  @OldNote = Nota from deleted where Id_Student= @Id_Student 
+            if (@OldNote > @NewNote and @OldNote is not null)
+            begin
+                UPDATE studenti_reusita
+                SET Nota = @OldNote
+                WHERE Nota = @NewNote and Id_Student=@Id_Student and Tip_Evaluare = @Tip_Evaluare and Id_Disciplina = @Id_Disciplina  
+            end
+            -- start task2
+            
+            
+         
+            
+            declare @OldDate date = ( select Data_Evaluare from deleted where Id_Student=@Id_Student and Tip_Evaluare = @Tip_Evaluare and Id_Disciplina = @Id_Disciplina)
+
+            
+            if (@OldDate is not null)  --  or @NewDate is not null
+            begin
+                UPDATE studenti_reusita
+                SET Data_Evaluare = @OldDate
+                WHERE Data_Evaluare = @Data_Evaluare and Id_Student=@Id_Student and Id_Disciplina=@Id_Disciplina and Tip_Evaluare= @Tip_Evaluare
+            end
+            
+            FETCH NEXT FROM db_cursor INTO @Id_Student,@Id_Disciplina,@Id_Profesor,@Id_Grupa,@Tip_Evaluare,@NewNote,@Data_Evaluare
+
+            Print 'TRIGGER HAS BEEN TRIGGERED'
+        end -- end if cib 
+
+
+    end -- end while
+    CLOSE db_cursor
+    DEALLOCATE db_cursor
+end -- end trigger
+
+go
+update studenti_reusita
+set  Data_Evaluare = '1998-08-08'
+where Id_Student = 101 and Tip_Evaluare='Examen' and Id_Disciplina=105
+```
 
 
 ```sql
@@ -239,9 +372,71 @@ alter column Id_Disciplina varchar(6)
 
 5. Sa se creeze un declansator DDL care ar interzice modificarea schemei bazei de date in afara orelor de lucru.
 
+```sql
+use  universitatea
+go
+drop trigger if exists de5 
+go
+create trigger de5 on database
+for ALTER_TABLE
+as
+set nocount on
+ declare @CurrentTime time
+ declare @starttime time
+ declare @endtime time
 
+ select @CurrentTime = CONVERT(Time, GETDATE())
+ select @starttime = '08:00:00'
+ select @endtime = '16:00:00'
+
+if ( @CurrentTime < @starttime) or (@CurrentTime > @endtime) 
+ begin
+ raiserror( 'All database changes can be made only from 8 am to 14 pm', 16, 1)
+ rollback
+end
+ go
+alter table dbo.grupe
+alter column Cod_Grupa char(7);
+```
+
+![Nr5](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr5.PNG)
 
 6. Sa se creeze un declansator DDL care, la modificarea proprietatilor coloanei Id_Profesor dintr-un tabel, ar face schimbari asemanatoare in mod automat in restul tabelelor.
 
 
+
+```sql
+use universitatea
+go
+if exists (select * from sys.triggers where parent_class = 0
+and name = 'exec6')
+drop trigger  exec6 on database;
+go
+create trigger exec6 on database
+for alter_table
+as
+begin
+
+declare @schema varchar(max)
+declare @command varchar(max)
+declare @command_new varchar(max)
+
+set @command=EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand)[1]','varchar(MAX)')
+set @schema=EVENTDATA().value('(/EVENT_INSTANCE/Objectname)[1]','varchar(MAX)')
+set @command_new=replace(@command, @schema,'studenti_reusita')
+
+if @command like '%Id_Profesor%'
+	begin
+	if (@schema != 'id_pr')
+			begin 
+				set @command_new=REPLACE (@command,'Id_Profesor\','studenti_reusita')
+				execute(@command_new)
+			end
+	end
+end
+go
+
+```
+
+![Nr6](https://github.com/KatyaFAF172/BD/blob/master/Laboratory-work-10/image/Nr6.PNG)
 
