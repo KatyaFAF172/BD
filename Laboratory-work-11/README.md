@@ -9,7 +9,7 @@ Tasks
 
 ```sql
 if EXISTS (select * from master.dbo.sysdevices where name='backup11')
-exec sp_dropdevice 'backup11' , 'delfile';
+exec sp_dropdevice 'backup11';
 go
 exec sp_addumpdevice 'disk','backup11','D:\Anul II\SQL\Backup_lab11\exercitiul1.bak';
 go
@@ -76,7 +76,7 @@ restore database [universitatea_lab11]
   from  disk = 'D:\Anul II\SQL\Backup_lab11\exercitiul2.bak' 
  with  file = 1,  
  move 'universitatea' to 'D:\Anul II\SQL\Backup_lab11\universitatea_lab11.mdf',  
- move N'universitatea_log' to 'D:\Anul II\SQL\Backup_lab11\universitatea_lab11_log.ldf',  
+ move 'universitatea_log' to 'D:\Anul II\SQL\Backup_lab11\universitatea_lab11_log.ldf',  
   NORECOVERY,  NOUNLOAD,  REPLACE
 go
 restore LOG [universitatea_lab11] 
